@@ -1,0 +1,6 @@
+framework module Pods_NewsTech {
+  umbrella header "Pods-NewsTech-umbrella.h"
+
+  export *
+  module * { export * }
+}
