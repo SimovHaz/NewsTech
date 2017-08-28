@@ -11,6 +11,7 @@ target 'NewsTech' do
     pod 'IQKeyboardManagerSwift'
     pod 'SDWebImage/WebP' , '~>4.0'
     pod 'Toast-Swift', '~> 2.0.0'
+    pod 'Lightbox'
   # Pods for NewsTech
 
 end

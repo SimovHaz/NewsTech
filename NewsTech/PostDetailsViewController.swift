@@ -11,6 +11,9 @@ import SlideMenuControllerSwift
 import SDWebImage
 import Parse
 import Toast_Swift
+import Lightbox
+import AVFoundation
+
 
 class PostDetailsViewController: UIViewController {
     
@@ -20,6 +23,42 @@ class PostDetailsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet var playVideo: UIButton!
+    @IBAction func showVideo(_ sender: Any) {
+        
+        let images = [
+           
+            LightboxImage(
+                image: thumbnailForVideoAtURL(url: URL(string: post.videoURL!)!)!,
+                text: "",
+                videoURL: URL(string: post.videoURL!)
+            )
+        ]
+        
+        let controller = LightboxController(images: images)
+        controller.dynamicBackground = true
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    private func thumbnailForVideoAtURL(url: URL) -> UIImage? {
+        
+        let asset = AVAsset(url: url)
+        let assetImageGenerator = AVAssetImageGenerator(asset: asset)
+        
+        var time = asset.duration
+        time.value = min(time.value, 2)
+        
+        do {
+            let imageRef = try assetImageGenerator.copyCGImage(at: time, actualTime: nil)
+            return UIImage(cgImage: imageRef)
+        } catch {
+            print("error")
+            return nil
+        }
+    }
+  
+
     @IBOutlet var MainPostPic: UIImageView!
     let dateFormatterPrint = DateFormatter()
     
@@ -34,6 +73,9 @@ class PostDetailsViewController: UIViewController {
             if image != nil {
                 self.MainPostPic.image = image
             }
+        }
+        if self.post.videoURL != nil {
+            self.playVideo.isHidden = false
         }
         
         //get comments of post
@@ -65,6 +107,7 @@ class PostDetailsViewController: UIViewController {
             let indexPath = IndexPath(row: sender.tag, section: 0)
             if let cell = tableView.cellForRow(at: indexPath) as? CommentTableViewCell
             {
+                cell.setLoadingScreen()
                 if !(cell.commentTextView.text?.isEmpty)!{
                     let comment = Comment()
                     comment.content = cell.commentTextView.text!
@@ -79,6 +122,9 @@ class PostDetailsViewController: UIViewController {
                                         if success! {
                                             getCommentsInPost(post: self.post, completionBlock: { (comments, error) in
                                                 if error == nil {
+                                                    cell.loadingView.stopAnimating()
+                                                    cell.loadingView.isHidden = true
+                                                    cell.sendComment.isHidden = false
                                                     cell.commentTextView.text?.removeAll()
                                                     self.postComments = comments as! [Comment]
                                                     self.tableView.reloadData()
@@ -100,7 +146,12 @@ class PostDetailsViewController: UIViewController {
         } else {
             self.style.backgroundColor = UIColorFromRGB(rgbValue: 0xcfced5)
             self.style.messageColor = UIColorFromRGB(rgbValue: 0xff0038)
-            self.view.makeToast("يجب عليك تسجيل الدخول أولا", duration: 2, position: .bottom , style: self.style)
+            self.view.makeToast("يجب عليك تسجيل الدخول أولا", duration: 2, position: .bottom, title: "click to register", image: nil, style: self.style, completion: { (didTap) in
+                if didTap {
+                    let currentView : UIViewController = UIStoryboard.init(name: "main", bundle: nil).instantiateViewController(withIdentifier: "LogInViewController")
+                    self.present(currentView, animated: true, completion: nil)
+                }
+            })
         }
         
     }
@@ -154,9 +205,16 @@ class PostDetailsViewController: UIViewController {
         } else {
             self.style.backgroundColor = UIColorFromRGB(rgbValue: 0xcfced5)
             self.style.messageColor = UIColorFromRGB(rgbValue: 0xff0038)
-            self.view.makeToast("يجب عليك تسجيل الدخول أولا", duration: 2, position: .bottom , style: self.style)
+            self.view.makeToast("يجب عليك تسجيل الدخول أولا", duration: 2, position: .bottom, title: "click to register", image: nil, style: self.style, completion: { (didTap) in
+                if didTap {
+                    let currentView : UIViewController = UIStoryboard.init(name: "main", bundle: nil).instantiateViewController(withIdentifier: "LogInViewController")
+                    self.present(currentView, animated: true, completion: nil)
+                }
+            })
         }
     }
+    
+   
 }
 
 extension PostDetailsViewController: UITableViewDataSource {
@@ -226,8 +284,8 @@ extension PostDetailsViewController: UITableViewDataSource {
                     }
                 }
             }
-            if PFUser.current() != nil && PFUser.current()?.username != postComments[indexPath.row - 4].user.username {
-                cell?.deleteComment.isHidden = true
+            if PFUser.current() != nil && PFUser.current()?.username == postComments[indexPath.row - 4].user.username {
+                cell?.deleteComment.isHidden = false
             }
             cell?.deleteComment.tag = indexPath.row
             cell?.deleteComment.addTarget(self, action: #selector(self.deleteCommentAction(_:)), for: .touchUpInside)

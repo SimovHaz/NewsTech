@@ -26,9 +26,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !UserDefaults.standard.bool(forKey: "firstLaunch") {
             UserDefaults.standard.set(false, forKey: "firstLaunch")
-        }	
+        }
+        
+        let types: UIUserNotificationType = [.alert, .badge, .sound]
+        let settings = UIUserNotificationSettings(types: types, categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
       
         return true
+    }
+  
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let installation = PFInstallation.current()
+        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.saveInBackground()
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+    }
+  
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        PFPush.handle(userInfo)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

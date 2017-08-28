@@ -10,16 +10,16 @@ import UIKit
 import XLPagerTabStrip
 import SDWebImage
 import Parse
-import Toast_Swift
+import NVActivityIndicatorView
 
 
-class TestMainTableViewController: UIViewController , IndicatorInfoProvider{
+class TestMainTableViewController: UIViewController , IndicatorInfoProvider, NVActivityIndicatorViewable {
     
     @IBOutlet var testTableView: UITableView!
+    @IBOutlet weak var loadingView: NVActivityIndicatorView!
     var dataSource: [Post] = [Post]()
     var itemInfo: IndicatorInfo = "View"
     let dateFormatterPrint = DateFormatter()
-    var style = ToastStyle()
 
     
     var refreshControl: UIRefreshControl = {
@@ -42,8 +42,8 @@ class TestMainTableViewController: UIViewController , IndicatorInfoProvider{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        style.activitySize =  CGSize(width: 50.0, height: 50.0)
-        style.fadeDuration = 2
+        
+        setLoadingScreen()
         
          self.testTableView.refreshControl = refreshControl
       
@@ -51,19 +51,19 @@ class TestMainTableViewController: UIViewController , IndicatorInfoProvider{
         self.testTableView.backgroundView?.backgroundColor = UIColorFromRGB(rgbValue: 0xeeecf6)
         self.testTableView.rowHeight = UITableViewAutomaticDimension
         self.testTableView.estimatedRowHeight = 288
-        
-       
-            getAllPosts { (posts, error) in
+     
+        getAllPosts { (posts, error) in
                 if error == nil {
+                    self.loadingView.stopAnimating()
                     self.dataSource = posts as! [Post]
                     self.testTableView.reloadData()
-                    
-                    
                 }
                 else {
                     print("error get all posts")
                 }
             }
+        
+        //update the nbr of each tag in parse
         getFamousTags { (tags, error) in
             if error == nil {
                 for tagT in tags as! [Tag]{
@@ -89,6 +89,14 @@ class TestMainTableViewController: UIViewController , IndicatorInfoProvider{
         self.testTableView.reloadData()
         refreshControl.endRefreshing()
     }
+    private func setLoadingScreen() {
+        
+        loadingView.type = .ballSpinFadeLoader
+        loadingView.color = UIColorFromRGB(rgbValue: 0xff0038)
+        loadingView.startAnimating()
+
+    }
+    
     
 }
 
@@ -117,6 +125,10 @@ extension TestMainTableViewController: UITableViewDataSource {
                 cell.postMainImage.image = image
             }
         }
+        
+        if self.dataSource[indexPath.row].videoURL != nil {
+            cell.playVideoAvatar.isHidden = false
+        }
         //verify loggedIn or Visitor
         if PFUser.current() != nil {
             
@@ -133,9 +145,7 @@ extension TestMainTableViewController: UITableViewDataSource {
             
         }
        
-        if self.dataSource[indexPath.row].videoURL != nil {
-            cell.playVideoAvatar.isHidden = false
-        }
+        
         
         return cell
     }
@@ -159,9 +169,7 @@ extension TestMainTableViewController: UITableViewDelegate {
         
         if(distanceFromBottom < height)
         {
-            self.view.makeToastActivity(.bottom)
             self.testTableView.reloadData()
-            self.view.hideToastActivity()
         }
     }
 }

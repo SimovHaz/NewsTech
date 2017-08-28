@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Hue.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManagerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Lightbox.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -62,12 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>10E7E08DF159396FC61B75CA39EB20C6</key>
+		<key>11B13D7DA72E97DBAF47FD07B6FA4C9B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21A15369B9DCFB14574E7AC6C97502E1</key>
+		<key>1B7CAE6CD32163AD7EBD1431F499A66E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37B66AF5870FA3E1022722ECFA09EB7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D64A0C19A2D667A4E9730E62A2C06A7</key>
+		<key>574F27E1035C64C4A0BC9489E1F2CA25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9664CAA949AB04D81D49259E01BCC3F3</key>
+		<key>5BDFFBBE565D4B22DAA0A690F540FCFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0D272D610D7A38AEC150EA22FC9D9A0</key>
+		<key>B2542602E50EDF091ADB18B4688DF34F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F04345050B853663B5E330EEE77DE9CF</key>
+		<key>C2698B495668A8120B132265CB72FB74</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F367EDFC0A449A477C8452E12B3B983B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

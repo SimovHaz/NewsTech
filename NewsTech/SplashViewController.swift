@@ -18,6 +18,7 @@ class SplashViewController: UIViewController , NVActivityIndicatorViewable  {
    
 
     @IBOutlet var loadingView: NVActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

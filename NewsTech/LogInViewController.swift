@@ -49,8 +49,6 @@ class LogInViewController: UIViewController {
             spinner.stopAnimating()
             
             if ((user) != nil) {
-                let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
                 DispatchQueue.main.async(execute: { () -> Void in
                     let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainPostViewNavigation") as! UINavigationController
                     let menu = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
@@ -64,7 +62,7 @@ class LogInViewController: UIViewController {
                 })
                 
             } else {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Error", message: "\(error.debugDescription)", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             }
         })

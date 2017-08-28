@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 import SDWebImage
+import Toast_Swift
+
 
 class MenuTableViewController: UITableViewController {
     
@@ -19,9 +21,15 @@ class MenuTableViewController: UITableViewController {
     
     @IBOutlet var menuTableView: UITableView!
     
+    var style = ToastStyle()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        avatarOutlet.layer.cornerRadius = avatarOutlet.frame.height/2
+        avatarOutlet.layer.masksToBounds = true
+        
         if PFUser.current() != nil {
             logoMenuOutlet.isHidden = true
             fullName.isHidden = false
@@ -46,7 +54,7 @@ class MenuTableViewController: UITableViewController {
             return 11
         }
         return 10
-
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -56,7 +64,7 @@ class MenuTableViewController: UITableViewController {
         let navController = self.slideMenuController()?.mainViewController as! UINavigationController
         
         
-        let currentView : UIViewController!
+        var currentView : UIViewController!
         
         switch indexPath.row {
             
@@ -92,7 +100,7 @@ class MenuTableViewController: UITableViewController {
         case 3:
             currentView = stb.instantiateViewController(withIdentifier: "FamousTagsTableViewController")
             self.slideMenuController()?.closeRight()
-
+            
             if navController.topViewController?.className != currentView.className {
                 if navController.viewControllers.count > 1{
                     navController.viewControllers.removeLast()
@@ -101,13 +109,25 @@ class MenuTableViewController: UITableViewController {
             }
             break;
         case 4:
-            currentView = stb.instantiateViewController(withIdentifier: "LikedPostViewController")
-            self.slideMenuController()?.closeRight()
-            if navController.topViewController?.className != currentView.className {
-                if navController.viewControllers.count > 1{
-                    navController.viewControllers.removeLast()
+            if PFUser.current() == nil{
+                self.style.backgroundColor = UIColorFromRGB(rgbValue: 0xcfced5)
+                self.style.messageColor = UIColorFromRGB(rgbValue: 0xff0038)
+                self.view.makeToast("يجب عليك تسجيل الدخول أولا", duration: 2, position: .bottom, title: "click to register", image: nil, style: self.style, completion: { (didTap) in
+                    if didTap {
+                        currentView = stb.instantiateViewController(withIdentifier: "LogInViewController")
+                        self.present(currentView, animated: true, completion: nil)
+                    }
+                })
+              
+            }else {
+                currentView = stb.instantiateViewController(withIdentifier: "LikedPostViewController")
+                self.slideMenuController()?.closeRight()
+                if navController.topViewController?.className != currentView.className {
+                    if navController.viewControllers.count > 1{
+                        navController.viewControllers.removeLast()
+                    }
+                    navController.pushViewController(currentView, animated: false)
                 }
-                navController.pushViewController(currentView, animated: false)
             }
             break;
             

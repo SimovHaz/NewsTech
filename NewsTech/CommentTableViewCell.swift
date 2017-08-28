@@ -9,8 +9,10 @@
 import UIKit
 import Parse
 import Toast_Swift
-class CommentTableViewCell: UITableViewCell {
+import NVActivityIndicatorView
+class CommentTableViewCell: UITableViewCell , NVActivityIndicatorViewable{
 
+    @IBOutlet var loadingView: NVActivityIndicatorView!
     @IBOutlet var commentTextView: UITextField!
     
     @IBOutlet var sendComment: UIButton!
@@ -24,5 +26,12 @@ class CommentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    public func setLoadingScreen() {
+        sendComment.isHidden = true
+        loadingView.isHidden = false
+        loadingView.type = .ballSpinFadeLoader
+        loadingView.color = UIColorFromRGB(rgbValue: 0x7b879f)
+        loadingView.startAnimating()
+        
+    }
 }
