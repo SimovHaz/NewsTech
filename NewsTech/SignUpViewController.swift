@@ -97,7 +97,7 @@ class SignUpViewController: UIViewController ,UINavigationControllerDelegate, UI
             // Stop the spinner
             spinner.stopAnimating()
             if ((error) != nil) {
-                let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                let alert = UIAlertView(title: "Error", message: "\(String(describing: error))", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 
             } else {

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q1d-gK-R4E">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A291j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="q1d-gK-R4E">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -292,7 +292,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tagsCell" id="hpg-mG-MkC" customClass="TagCollectionViewCell" customModule="NewsTech" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="1" width="85" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.5" width="85" height="43"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="43"/>
@@ -350,7 +350,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="أضف تعليقاً " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eu4-ls-kE4">
-                                                    <rect key="frame" x="241" y="5" width="83" height="32"/>
+                                                    <rect key="frame" x="241.5" y="5" width="82.5" height="32"/>
                                                     <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="17"/>
                                                     <color key="textColor" red="0.050980392843484879" green="0.35686275362968445" blue="0.91372549533843994" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -674,7 +674,7 @@
                                     </constraints>
                                 </imageView>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srX-hk-OW9">
-                                    <rect key="frame" x="8" y="49" width="267" height="47"/>
+                                    <rect key="frame" x="8" y="49.5" width="267" height="46.5"/>
                                     <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="25"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -1362,7 +1362,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1u-jY-ilA">
-                                                    <rect key="frame" x="156" y="-1" width="44" height="34"/>
+                                                    <rect key="frame" x="156" y="-0.5" width="44" height="33.5"/>
                                                     <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1456,13 +1456,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKW-jt-iSu">
-                                                    <rect key="frame" x="268" y="7" width="61" height="47"/>
+                                                    <rect key="frame" x="268" y="7.5" width="61" height="46.5"/>
                                                     <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oL1-jl-nGF">
-                                                    <rect key="frame" x="10" y="6" width="61" height="47"/>
+                                                    <rect key="frame" x="10" y="6.5" width="61" height="46.5"/>
                                                     <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1675,7 +1675,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="آخر الأخبار" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwm-A8-L20">
-                                <rect key="frame" x="125" y="367" width="125" height="50"/>
+                                <rect key="frame" x="125.5" y="367" width="124.5" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dgo-nv-pgK"/>
                                 </constraints>
@@ -1805,7 +1805,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jc-rh-rmE">
                                 <rect key="frame" x="237" y="120" width="130" height="80"/>
@@ -1904,7 +1904,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="الاسم الكامل" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfe-q6-LKl">
-                                <rect key="frame" x="8" y="94" width="220" height="40"/>
+                                <rect key="frame" x="8" y="94" width="220.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qeV-5I-Byo"/>
                                 </constraints>
@@ -1913,7 +1913,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الاسم الكامل" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfQ-II-hHL">
-                                <rect key="frame" x="248" y="94" width="119" height="40"/>
+                                <rect key="frame" x="248.5" y="94" width="118.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ew5-SW-wg4"/>
                                 </constraints>
@@ -1922,7 +1922,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="18n-I5-ByD">
-                                <rect key="frame" x="8" y="214" width="220" height="40"/>
+                                <rect key="frame" x="8" y="214" width="220.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="duI-Jk-Njs"/>
                                 </constraints>
@@ -1931,19 +1931,19 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="كلمة المرور" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygX-a1-aDH">
-                                <rect key="frame" x="248" y="214" width="119" height="40"/>
+                                <rect key="frame" x="248.5" y="214" width="118.5" height="40"/>
                                 <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" البريد الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrM-eO-JcV">
-                                <rect key="frame" x="8" y="154" width="220" height="40"/>
+                                <rect key="frame" x="8" y="154" width="220.5" height="40"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="13"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="البريد الالكتروني" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FC8-or-hTY">
-                                <rect key="frame" x="248" y="154" width="119" height="40"/>
+                                <rect key="frame" x="248.5" y="154" width="118.5" height="40"/>
                                 <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1959,7 +1959,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" تأكيد كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NdJ-YG-THV">
-                                <rect key="frame" x="8" y="274" width="220" height="40"/>
+                                <rect key="frame" x="8" y="274" width="220.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="win-pT-Lus"/>
                                 </constraints>
@@ -1968,13 +1968,13 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" تأكيد كلمة المرور" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNX-95-Obn">
-                                <rect key="frame" x="248" y="274" width="119" height="40"/>
+                                <rect key="frame" x="248.5" y="274" width="118.5" height="40"/>
                                 <fontDescription key="fontDescription" name="JannaLT-Regular" family="Janna LT" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PC3-ac-ukt">
-                                <rect key="frame" x="58" y="334" width="120" height="100"/>
+                                <rect key="frame" x="58.5" y="334" width="120" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="NNW-9G-mf5"/>
                                     <constraint firstAttribute="width" constant="120" id="wrI-i1-5gZ"/>
